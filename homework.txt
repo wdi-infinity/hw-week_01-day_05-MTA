@@ -1,0 +1,510 @@
+// create objects of array (subwaySystem)
+var subwaySystem={firstLine: ["Times Square", "34th", "28th", "23rd", "Union Square", "8th"], thirdLine: ["8th", "6th", "Union Square", "3rd","1st"],
+secondLine: ["Grand Central", "33rd", "28th", "23rd", "Union Square","Astor Place"],
+
+subwayStops: function(line1,startPoint,line2,endPoint){
+   var num=0;
+   var arr= [];//empty array to fill the line1 stops
+   var arr2=[];///empty array to fill the line2 stops
+   var str1="You must travel through the following stops on the N line: ";
+   var str2="Your journey continues through the following stops: ";
+   var before=false; //declare variable before(i use it to know where the user will go before Union Square of after Union Square )
+
+// first check if line1 "N"or"6" 
+   if(line1 === "N" && line2 === "6" || line1 === "6" && line2 === "N"){
+       //check if it start with N line 
+     if(line1 === "N"){ 
+       for(var i=0;i<subwaySystem.firstLine.length;i++){
+         if(subwaySystem.firstLine[i] === startPoint){//to search about startPoint index 
+            for(var j=i+1;j<subwaySystem.firstLine.length;j++){
+                if(subwaySystem.firstLine[j]!== "Union Square"){
+                    arr.push(subwaySystem.firstLine[j]); 
+                    num++;}//push
+                else if(subwaySystem.firstLine[j] === "Union Square"){
+                    arr.push(subwaySystem.firstLine[j]);//push Union Square
+                    num++;
+                    var index=subwaySystem.secondLine.indexOf("Union Square");//store index
+                       
+                        for(var l=index;l>0;l--){// 'l' strat from index
+                          if (subwaySystem.secondLine[l] === endPoint){//check if end point before Union Square
+                           before=true;}
+                           else{
+                            before=false;}
+                           }
+
+                           //if endPoint before Union Square
+                           if (before === true){
+                             for(var l=index-1;l>0;l--){
+                               if(subwaySystem.secondLine[l]!==endPoint){
+                                 arr2.push(subwaySystem.secondLine[l]);
+                                 num++;}
+                              else {
+                                arr2.push(subwaySystem.secondLine[l]);
+                                num++;
+                                for(var p=0;p<arr.length;p++){
+                                    str1+=arr[p]+" ";}
+                                for(var p=0;p<arr2.length;p++){
+                                 str2+=arr2[p]+" ";}// store}
+                               console.log(str1);// print in the same line
+                               console.log(str2);// print in the same line
+                              console.log(num+" stops in total");
+                              l=0;// to exit from the loop
+                              i=subwaySystem.firstLine.length;// to exit from the loop
+                            }//end else (equale endPoint)
+                        }
+                       }//end befor true
+
+                         else if(before !== true) {
+                               for(var l=index;l<subwaySystem.secondLine.length;l++){
+                                  if(subwaySystem.secondLine[l]!==endPoint){
+                                     arr2.push(subwaySystem.secondLine[l]);
+                                     num++;}
+                                  else if(subwaySystem.secondLine[l] === endPoint){
+                                     arr2.push(subwaySystem.secondLine[l]);
+                                     num++;
+                                    for(var p=0;p<arr.length;p++){
+                                        str1+=arr[p]+" ";}//store line1
+                                
+                                    for(var p=0;p<arr2.length;p++){
+                                        str2+=arr2[p]+" ";}//store line2
+                             
+                                    console.log(str1);//print
+                                    console.log(str2);//print
+                                    console.log(num+" stops in total");
+                                   l=0; // exit from the loop
+                                   i=subwaySystem.firstLine.length;// exit from the loop
+                            }//end else
+                          }//end for loop 
+                        }//end else
+                    
+               }//if firstLine Union
+
+            }//end loop firstLine
+         }//check for strat loop from startpoint index
+      }//end loop firstLine 
+     }//end if line1="N"
+    
+     else if(line1 === "6"){
+          for(var i=0;i<subwaySystem.secondLine.length;i++){
+         if(subwaySystem.secondLine[i]===startPoint){
+            for(var j=i+1;j<subwaySystem.secondLine.length;j++){
+                if(subwaySystem.secondLine[j]!=="Union Square"){
+                   arr.push(subwaySystem.secondLine[j]);
+                   num++;}
+               else if(subwaySystem.secondLine[j]==="Union Square"){
+                    arr.push(subwaySystem.secondLine[j]);
+                    num++;
+               var index=subwaySystem.firstLine.indexOf("Union Square");
+                
+                for(var l=index;l>0;l--){
+                       if (subwaySystem.firstLine[l]===endPoint)
+                           befor=true;
+                           else
+                           befor=false;
+                           }
+
+                           if(before === true){
+                             for(var l=index-1;l>0;l--){
+                                if(subwaySystem.firstLine[l]!==endPoint){
+                                arr2.push(subwaySystem.firstLine[l]);
+                                num++;}
+                                else if(subwaySystem.firstLine[l]===endPoint){
+                                  arr2.push(subwaySystem.firstLine[l]);
+                                  num++;
+                                  for(var p=0;p<arr.length;p++){
+                                    str1+=arr[p]+" ";}
+                             
+                                 for(var p=0;p<arr2.length;p++){
+                                   str2+=arr2[p]+" ";}
+
+                                 console.log(str1);
+                                 console.log(str2);
+                                 console.log(num+" stops in total");
+                                 l=0;
+                                 i=subwaySystem.secondLine.length;
+                            
+                                }//else if I found endPoint 
+                             }//end loop search about endPoint
+
+                           }//end if befor equal true
+
+                           else if(before===false){
+                               for(var l=index;l<subwaySystem.firstLine.length;l++){
+                            if(subwaySystem.firstLine[l]!==endPoint){
+                                arr2.push(subwaySystem.firstLine[l]);
+                                num++;
+                            }
+                            else if(subwaySystem.firstLine[l] === endPoint){
+                                arr2.push(subwaySystem.firstLine[l]);
+                                num++;
+                                for(var p=0;p<arr.length;p++){
+                                   str1+=arr[p]+" ";}//add
+                                
+                                for(var p=0;p<arr2.length;p++){
+                                    str2+=arr2[p]+" ";}//add
+                             
+                             console.log(str1);
+                             console.log(str2);
+                             console.log(num+" stops in total");
+                             l=0;// to exit from the loop
+                             i=subwaySystem.secondLine.length;// to exit from the loop
+                            }
+                         }//end for loop search about endPoint start from index of Union Square
+                           }//end else befor equal false
+                    }//end else if secondLine equal Union Square
+               }// end loop start with the index of startPoint
+            }//check for strat loop from startpoint index
+         }//end loop secondLine
+         
+     }//end if line1==6
+}//if line N or 6
+
+//Second if line1 "N" or "L"
+else if(line1 === "N" && line2 === "L" || line1 === "L" && line2 === "N"){
+  if(line1==="N"){
+   for(var i=0;i<subwaySystem.firstLine.length;i++){
+         if(subwaySystem.firstLine[i]===startPoint){
+            for(var j=i+1;j<subwaySystem.firstLine.length;j++){
+                if(subwaySystem.firstLine[j]!=="Union Square"){
+                     arr.push(subwaySystem.firstLine[j]);
+                     num++;}
+                else if(subwaySystem.firstLine[j]==="Union Square"){
+                     arr.push(subwaySystem.firstLine[j]);
+                     num++;
+                     var index=subwaySystem.thirdLine.indexOf("Union Square");
+                      
+                      for(var l=index;l>0;l--){
+                       if (subwaySystem.thirdLine[l]===endPoint)
+                         before=true;
+                       else
+                         before=false;}
+
+                         if(before === true){
+                           for(var l=index-1;l>0;l--){
+                             if(subwaySystem.thirdLine[l]!==endPoint){
+                                arr2.push(subwaySystem.thirdLine[l]);
+                                num++;}
+
+                             else if(subwaySystem.thirdLine[l]===endPoint){
+                                arr2.push(subwaySystem.thirdLine[l]);
+                                num++;
+                                for(var p=0;p<arr.length;p++){
+                                    str1+=arr[p]+" ";}
+                             
+                                for(var p=0;p<arr2.length;p++){
+                                    str2+=arr2[p]+" ";}
+
+                              console.log(str1);
+                              console.log(str2);
+                              console.log(num+" stops in total");
+                              l=0;
+                              i=subwaySystem.firstLine.length;
+                            }
+                         }
+                           }//end befor true
+
+                        else{
+                               for(var l=index;l<subwaySystem.thirdLine.length;l++){
+                                  if(subwaySystem.thirdLine[l]!==endPoint){
+                                     arr2.push(subwaySystem.thirdLine[l]);
+                                     num++;}
+                                  else if(subwaySystem.thirdLine[l] === endPoint){
+                                     arr2.push(subwaySystem.thirdLine[l]);
+                                     num++;
+                                     for(var p=0;p<arr.length;p++){
+                                       str1+=arr[p]+" ";}
+                                
+                                     for(var p=0;p<arr2.length;p++){
+                                       str2+=arr2[p]+" ";}
+                             
+                                 console.log(str1);
+                                 console.log(str2);
+                                 console.log(num+" stops in total");
+                                 l=0;
+                                 i=subwaySystem.firstLine.length;
+                            }//end else equal endPoint
+                         }//loop
+                       }//end else
+                    }//else if equal Union Square
+               }//end for loop
+
+            }//check for strat loop from startpoint index
+         }//end loop firstLine 
+  }//end line1 equal N
+
+  else if(line1==="L"){
+      for(var i=0;i<subwaySystem.thirdLine.length;i++){
+         if(subwaySystem.thirdLine[i]===startPoint){
+            for(var j=i+1;j<subwaySystem.thirdLine.length;j++){
+                if(subwaySystem.thirdLine[j]!=="Union Square"){
+                   arr.push(subwaySystem.thirdLine[j]);
+                   num++;}
+                else if(subwaySystem.thirdLine[j]==="Union Square"){
+                     arr.push(subwaySystem.thirdLine[j]);
+                     num++;
+                     var index=subwaySystem.firstLine.indexOf("Union Square");
+
+                     for(var l=index;l>0;l--){
+                       if (subwaySystem.firstLine[l]===endPoint)
+                           befor=true;
+                           else
+                            befor=false;
+                           }
+
+                       if(befor === true){
+                         for(var l=index-1;l>0;l--){
+                            if(subwaySystem.firstLine[l]!==endPoint){
+                                arr2.push(subwaySystem.firstLine[l]);
+                                num++;
+                            }
+                            else if(subwaySystem.firstLine[l]===endPoint){
+                                arr2.push(subwaySystem.firstLine[l]);
+                                num++;
+                                for(var p=0;p<arr.length;p++){
+                                    str1+=arr[p]+" ";}
+                             for(var p=0;p<arr2.length;p++){
+                                 str2+=arr2[p]+" ";}
+
+                              console.log(str1);
+                              console.log(str2);
+                              console.log(num+" stops in total");
+                              l=0;
+                              i=subwaySystem.thirdLine.length;
+                            }
+                         }
+                           }//end befor true
+                         else{
+                            for(var l=index;l<subwaySystem.firstLine.length;l++){
+                              if(subwaySystem.firstLine[l]!==endPoint){
+                                arr2.push(subwaySystem.firstLine[l]);
+                                num++;}
+                              else if(subwaySystem.firstLine[l] === endPoint){
+                                 arr2.push(subwaySystem.firstLine[l]);
+                                 num++;
+                                 for(var p=0;p<arr.length;p++){
+                                   str1+=arr[p]+" ";}
+                                
+                                 for(var p=0;p<arr2.length;p++){
+                                    str2+=arr2[p]+" ";}
+                             
+                              console.log(str1);
+                              console.log(str2);
+                              console.log(num+" stops in total");
+                              l=0;
+                              i=subwaySystem.thirdLine.length;
+                             }
+                          }
+                     }//end else
+                    }//end check if equal Union Square
+
+               }//for loop thirdLine
+            }//check for strat loop from startpoint index
+         }//end loop thirdLine 
+  }// end if line1 equal L
+}//if line1 N or L
+
+else if(line1==="6" && line2==="L" || line1==="L" && line2==="6"){
+if(line1==="6"){
+for(var i=0;i<subwaySystem.secondLine.length;i++){
+         if(subwaySystem.secondLine[i]===startPoint){
+            for(var j=i+1;j<subwaySystem.secondLine.length;j++){
+                if(subwaySystem.secondLine[j]!=="Union Square"){
+                  arr.push(subwaySystem.secondLine[j]);
+                  num++;}
+                else if(subwaySystem.secondLine[j]==="Union Square"){
+                     arr.push(subwaySystem.secondLine[j]);
+                     num++;
+
+                     var index=subwaySystem.thirdLine.indexOf("Union Square");
+
+                     for(var l=index;l>0;l--){
+                       if (subwaySystem.thirdLine[l]===endPoint)
+                           befor=true;
+                           else
+                            befor=false;
+                           }
+                       if(befor === true){
+                         for(var l=index-1;l>0;l--){
+                            if(subwaySystem.thirdLine[l]!==endPoint){
+                                arr2.push(subwaySystem.thirdLine[l]);
+                                num++;
+                            }
+                            else if(subwaySystem.thirdLine[l]===endPoint){
+                                arr2.push(subwaySystem.thirdLine[l]);
+                                num++;
+                                for(var p=0;p<arr.length;p++){
+                                    str1+=arr[p]+" ";}
+                             for(var p=0;p<arr2.length;p++){
+                                 str2+=arr2[p]+" ";}
+
+                              console.log(str1);
+                              console.log(str2);
+                              console.log(num+" stops in total");
+                              l=0;
+                              i=subwaySystem.secondLine.length;
+                            }
+                         }
+                           }//end befor true
+
+                            else{
+                               for(var l=index;l<subwaySystem.thirdLine.length;l++){
+                                  if(subwaySystem.thirdLine[l]!==endPoint){
+                                    arr2.push(subwaySystem.thirdLine[l]);
+                                    num++;}
+                                  else if(subwaySystem.thirdLine[l] === endPoint){
+                                     arr2.push(subwaySystem.thirdLine[l]);
+                                     num++;
+
+                                 for(var p=0;p<arr.length;p++){
+                                   str1+=arr[p]+" ";}
+                                
+                                 for(var p=0;p<arr2.length;p++){
+                                    str2+=arr2[p]+" ";}
+                             
+                              console.log(str1);
+                              console.log(str2);
+                              console.log(num+" stops in total");
+                              l=0;
+                              i=subwaySystem.secondLine.length;
+                            }
+                         }
+                      }//end else
+                    }//check if secondLine equal Union Square
+               }//for loop strat with index of startPoint
+
+            }//check if the loop start from startpoint index
+         }//end loop secondLine 
+}//end if line1 equal 6
+
+else if(line1==="L"){
+   for(var i=0;i<subwaySystem.thirdLine.length;i++){
+         if(subwaySystem.thirdLine[i] === startPoint){
+            for(var j=i+1;j<subwaySystem.thirdLine.length;j++){
+                if(subwaySystem.thirdLine[j]!== "Union Square"){
+                  arr.push(subwaySystem.thirdLine[j]);
+                  num++;}
+                else if(subwaySystem.thirdLine[j]==="Union Square"){
+                     arr.push(subwaySystem.thirdLine[j]);
+                     num++;
+                  var index=subwaySystem.secondLine.indexOf("Union Square");
+                     for(var l=index;l>0;l--){
+                       if (subwaySystem.secondLine[l]===endPoint)
+                           befor=true;
+                           else
+                           befor=false;}
+                       if(befor === true){
+                         for(var l=index-1;l>0;l--){
+                            if(subwaySystem.secondLine[l]!==endPoint){
+                                arr2.push(subwaySystem.secondLine[l]);
+                                num++;}
+                            else if(subwaySystem.secondLine[l]===endPoint){
+                                arr2.push(subwaySystem.secondLine[l]);
+                                num++;
+                                for(var p=0;p<arr.length;p++){
+                                    str1+=arr[p]+" ";}
+                             
+                                for(var p=0;p<arr2.length;p++){
+                                    str2+=arr2[p]+" ";}
+
+                              console.log(str1);
+                              console.log(str2);
+                              console.log(num+" stops in total");
+                              l=0;
+                              i=subwaySystem.thirdLine.length;
+                            }
+                         }
+                     }//end befor true
+                        else{
+                            for(var l=index;l<subwaySystem.secondLine.length;l++){
+                              if(subwaySystem.secondLine[l]!==endPoint){
+                                arr2.push(subwaySystem.secondLine[l]);
+                            }
+                              else if(subwaySystem.secondLine[l] === endPoint){
+                                arr2.push(subwaySystem.secondLine[l]);
+
+                                for(var p=0;p<arr.length;p++){
+                                   str1+=arr[p]+" ";}
+                                
+                                for(var p=0;p<arr2.length;p++){
+                                    str2+=arr2[p]+" ";}
+                             
+                              console.log(str1);
+                              console.log(str2);
+                              l=0;
+                              i=subwaySystem.thirdLine.length;
+                            }
+                         }
+                       }//end else
+                    }//check if thirdLine equal Union Square
+
+               }//for loop thirdLine
+            }//check if the loop start from startpoint index
+         }//end loop thirdLine 
+}//end if line1 equal L
+}//end if line1 6 or L
+
+//if line1 and line2 same
+else if(line1 === "N" && line2 === "N" || line1 === "6" && line2 === "6" || line1 === "L" && line2 === "L"){
+if(line1 === "N"){
+for(var i=0;i<subwaySystem.firstLine.length;i++){
+  if(subwaySystem.firstLine[i] === startPoint){
+     for(var l1=i+1;l1<subwaySystem.firstLine.length;l1++){
+        if(subwaySystem.firstLine[l1] !== endPoint){
+           arr.push(subwaySystem.firstLine[l1]); }
+
+        else if(subwaySystem.firstLine[l1] === endPoint){
+          arr.push(subwaySystem.firstLine[l1]);
+          for(var p=0;p<arr.length;p++){
+             str1+=arr[p]+" ";}
+          console.log(str1);
+       i=subwaySystem.firstLine.length;
+      l1=subwaySystem.firstLine.length;
+      }// check if reach endPoint 
+    }//loop start from startPonit index
+   }// check to start from startPonit index
+ }//end loop
+}// end if line1 equal "N"
+
+else if(line1 === "6"){
+for(var i=0;i<subwaySystem.secondLine.length;i++){
+  if(subwaySystem.secondLine[i] === startPoint){
+     for(var l1=i+1;l1<subwaySystem.secondLine.length;l1++){
+        if(subwaySystem.secondLine[l1] !== endPoint){
+           arr.push(subwaySystem.secondLine[l1]);
+   }
+   else if(subwaySystem.secondLine[l1] === endPoint){
+     arr.push(subwaySystem.secondLine[l1]);
+      for(var p=0;p<arr.length;p++){
+        str1+=arr[p]+" ";}
+     console.log(str1);
+     i=subwaySystem.secondLine.length;
+     l1=subwaySystem.secondLine.length;
+   }// check if reach endPoint 
+
+   }//loop start from startPonit index
+  }// check to start from startPonit index
+}//end loop
+}// end if line1 equal "6"
+
+else if(line1 === "L"){
+for(var i=0;i<subwaySystem.thirdLine.length;i++){
+  if(subwaySystem.thirdLine[i] === startPoint){
+     for(var l1=i+1;l1<subwaySystem.thirdLine.length;l1++){
+        if(subwaySystem.thirdLine[l1] !== endPoint){
+           arr.push(subwaySystem.thirdLine[l1]);}
+   else if(subwaySystem.thirdLine[l1] === endPoint){
+     arr.push(subwaySystem.thirdLine[l1]);
+      for(var p=0;p<arr.length;p++){
+        str1+=arr[p]+" ";}
+     console.log(str1);
+     i=subwaySystem.thirdLine.length;
+     l1=subwaySystem.thirdLine.length;
+   }// check if reach endPoint 
+  }//loop start from startPonit index
+ }// check to start from startPonit index
+}//end loop
+
+}// end if line1 equal "L"
+}//end if line N or 6 or L
+}//end function
+};
