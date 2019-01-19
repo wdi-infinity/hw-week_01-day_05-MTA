@@ -71,7 +71,6 @@ function trip(line, startStation, lastStation, str) {
   return `${str}`;
 }
 
-//I have to add the change'US' to it
 function countStops(startStation, lastStation) {
   var stops = 0;
   if (startStation < lastStation) {
