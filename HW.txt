@@ -3,10 +3,9 @@ var l = ['8th','6th','union square','3rd','1st'];
 var sixth = ['grand central','33rd','28th','23rd','union square','astor place'];
 
 function planTrip (startLine , startStaion, endLine, endStation){
+		var start = startLine.indexOf(startStaion);
+		var end = endLine.indexOf(endStation);
 		if (startLine === endLine){
-			var stations = startLine.length;
-			var start = startLine.indexOf(startStaion);
-			var end = endLine.indexOf(endStation);
 			if (start > end){
 				console.log(start-end);
             }
@@ -15,8 +14,6 @@ function planTrip (startLine , startStaion, endLine, endStation){
             }
         }
 		else{
-			var start = startLine.indexOf(startStaion);
-			var end = endLine.indexOf(endStation);
 			var point1 = startLine.indexOf('union square');
 			var point2 = endLine.indexOf('union square');
 			if (start > point1){
