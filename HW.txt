@@ -1,0 +1,44 @@
+var n = ['times square','34th','28th','23rd','union square','8th'];
+var l = ['8th','6th','union square','3rd','1st'];
+var sixth = ['grand central','33rd','28th','23rd','union square','astor place'];
+
+function planTrip (startLine , startStaion, endLine, endStation){
+		if (startLine === endLine){
+			var stations = startLine.length;
+			var start = startLine.indexOf(startStaion);
+			var end = endLine.indexOf(endStation);
+			if (start > end){
+				console.log(start-end);
+            }
+			else{
+				console.log(end-start);
+            }
+        }
+		else{
+			var start = startLine.indexOf(startStaion);
+			var end = endLine.indexOf(endStation);
+			var point1 = startLine.indexOf('union square');
+			var point2 = endLine.indexOf('union square');
+			if (start > point1){
+				start -= point1;
+            }
+			else{
+				start = point1 - start;
+            }
+			if (end < point2){
+				end = point2 - end;
+            }
+			if (start > end){
+				console.log(start+end);
+            }
+			else{
+				console.log(end-start);
+            }		
+}
+}
+
+planTrip(n,'34th',n,'8th');
+planTrip(n , '8th' , l , '3rd');
+planTrip(sixth, '33rd' , l , '8th');
+planTrip(l,'8th', sixth , 'astor place');
+    
