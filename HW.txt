@@ -3,33 +3,56 @@ var l = ['8th','6th','union square','3rd','1st'];
 var sixth = ['grand central','33rd','28th','23rd','union square','astor place'];
 
 function planTrip (startLine , startStaion, endLine, endStation){
-		var start = startLine.indexOf(startStaion);
-		var end = endLine.indexOf(endStation);
 		if (startLine === endLine){
+			var stations = '';
+			var start = startLine.indexOf(startStaion);
+			var end = endLine.indexOf(endStation);
 			if (start > end){
-				console.log(start-end);
+				for(var i= startLine.indexOf(startStaion); i <= startLine.length; i++){
+					stations += startLine[i];
+                }
+				console.log(`the number of stops is ${start-end} and you have went through all theses stations ${stations}`);
             }
 			else{
-				console.log(end-start);
+				for(var i= startLine.indexOf(startStaion); i <= startLine.length; i++){
+					stations += startLine[i];
+                }
+				console.log(`the number of stops is ${end-start} and you have went through all theses stations ${stations}`);
+				
             }
         }
 		else{
+			var start = startLine.indexOf(startStaion);
+			var end = endLine.indexOf(endStation);
 			var point1 = startLine.indexOf('union square');
 			var point2 = endLine.indexOf('union square');
+			var stations1 =''
+			var stations2 = ''
 			if (start > point1){
+				for (var i = point1; i <= start; i++){
+				stations1 += startLine[i] + ' ';
+                }
 				start -= point1;
             }
 			else{
+				for (var i = start; i <= point1; i++){
+				stations1 += startLine[i] + ' ';
+                }
 				start = point1 - start;
             }
 			if (end < point2){
+				for (var i = (end + 1); i <= point2; i++){
+				stations2 += endLine[i] + ' ';
+                }
 				end = point2 - end;
             }
 			if (start > end){
-				console.log(start+end);
+                
+				console.log(`the number of stops is ${start+end} and you have to travel through ${stations1} then switch to other line to continue through the following stops ${stations2}`);
+				
             }
 			else{
-				console.log(end-start);
+				console.log(`the number of stops is ${end-start} and you have to travel through ${stations1} then switch to other line to continue through the following stops ${stations2}`);
             }		
 }
 }
@@ -38,4 +61,3 @@ planTrip(n,'34th',n,'8th');
 planTrip(n , '8th' , l , '3rd');
 planTrip(sixth, '33rd' , l , '8th');
 planTrip(l,'8th', sixth , 'astor place');
-    
