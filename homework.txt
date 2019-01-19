@@ -1,0 +1,67 @@
+//the subway lines..
+
+theNline = [Times Square, 34th, 28th, 23rd, Union Square, 8th]
+theLline = [8th, 6th, Union Square, 3rd, 1st]
+the6line = [Grand Central, 33rd, 28th, 23rd, Union Square, Astor Place]
+
+//examples of inputs..
+
+planTrip("theNline", "Times Square", "theNline", "28th")
+planTrip("theNline", "8th", "theNline", "34th")
+planTrip("Times Square", "28th")         //2
+planTrip("8th", "34th")                  //4
+------------------------------------------------------------------
+
+//input variable for theNline
+
+var theNline = ["Times Square", "34th", "28th", "23rd", "Union Square", "8th"]
+------------------------------------------------------------------
+
+//planTrip function for the first line..
+
+function planTrip (onStop, offStop) {
+var onStopIndex,offStopIndex, numOfStops;
+for (i=0 ; i < theNline.length ; i++) {
+if (theNline[i] === onStop) {onStopIndex = i}
+if (theNline[i] === offStop) {offStopIndex = i}
+}
+console.log("Your trip will have the following stops: ");
+if (onStopIndex < offStopIndex) {
+numOfStops = offStopIndex - onStopIndex
+for (i=onStopIndex ; i <= offStopIndex ; i++) {
+console.log(theNline[i+1] + " ");
+}
+}
+if (onStopIndex > offStopIndex) {
+numOfStops = onStopIndex - offStopIndex
+for (i=onStopIndex ; i >= offStopIndex ; i--) {
+console.log(theNline[i-1] + " ");
+}
+}
+console.log("The number of stops for your trip is " + numOfStops);
+}
+------------------------------------------------------------------
+
+//attept to rewrite the function so that it also takes the lines as input..
+
+function planTrip (onLine, onStop, offLine, offStop) {
+var onStopIndex,offStopIndex, numOfStops;
+for (i=0 ; i < onLine.length ; i++) {
+if (onLine[i] === onStop) {onStopIndex = i}
+if (onLine[i] === offStop) {offStopIndex = i}
+}
+console.log("Your trip will have the following stops: ");
+if (onStopIndex < offStopIndex) {
+numOfStops = offStopIndex - onStopIndex
+for (i=onStopIndex+1 ; i <= offStopIndex ; i++) {
+console.log(onLine[i] + " ");
+}
+}
+if (onStopIndex > offStopIndex) {
+numOfStops = onStopIndex - offStopIndex
+for (i=onStopIndex-1 ; i >= offStopIndex ; i--) {
+console.log(onLine[i] + " ");
+}
+}
+console.log("The number of stops for your trip is " + numOfStops);
+}
