@@ -8,14 +8,14 @@ function planTrip (startLine , startStaion, endLine, endStation){
 			var start = startLine.indexOf(startStaion);
 			var end = endLine.indexOf(endStation);
 			if (start > end){
-				for(var i= startLine.indexOf(startStaion); i <= startLine.length; i++){
-					stations += startLine[i];
+				for(var i= end; i < start; i++){
+					stations += startLine[i] + ' ';
                 }
 				console.log(`the number of stops is ${start-end} and you have went through all theses stations ${stations}`);
             }
 			else{
-				for(var i= startLine.indexOf(startStaion); i <= startLine.length; i++){
-					stations += startLine[i];
+				for(var i= start; i < end; i++){
+					stations += startLine[i] + ' ';
                 }
 				console.log(`the number of stops is ${end-start} and you have went through all theses stations ${stations}`);
 				
@@ -46,17 +46,28 @@ function planTrip (startLine , startStaion, endLine, endStation){
                 }
 				end = point2 - end;
             }
-			if (start > end){
-                
-				console.log(`the number of stops is ${start+end} and you have to travel through ${stations1} then switch to other line to continue through the following stops ${stations2}`);
-				
+			if (stations2 > 0){
+
+                if (start > end){
+                    console.log(`the number of stops is ${start+end} and you have to travel through ${stations1} then switch to other line to continue through the following stops ${stations2} to arrive at ${endStation}`);
+
+                }
+                else{
+                    console.log(`the number of stops is ${end-start} and you have to travel through ${stations1} then switch to other line to continue through the following stops ${stations2} to arrive at ${endStation}`);
+                }
             }
 			else{
-				console.log(`the number of stops is ${end-start} and you have to travel through ${stations1} then switch to other line to continue through the following stops ${stations2}`);
-            }		
-}
-}
+				if (start > end){
+                    console.log(`the number of stops is ${start+end} and you have to travel through ${stations1} to arrive at ${endStation}`);
 
+                }
+                else{
+                    console.log(`the number of stops is ${end-start} and you have to travel through ${stations1} to arrive at ${endStation}`);
+                }
+					
+}
+}
+}
 planTrip(n,'34th',n,'8th');
 planTrip(n , '8th' , l , '3rd');
 planTrip(sixth, '33rd' , l , '8th');
