@@ -1,0 +1,67 @@
+var LineN = [ "8th", "6th", "Union Square", "3rd", "1st" ];
+
+var LineL = [ "8th", "6th", "Union Square", "3rd", "1st" ] ;
+
+var Line6 = [ "Grand Central", "33rd", "28th", "23rd", "Union Square", "Astor Place" ] ;
+
+function yourDircton(l1 ,s1 , l2 , s2 ) {
+var l1 = "" ;
+var s1 = "" ;
+var l2 = "" ;
+var s2 = "" ;
+
+ if ( l1 === "N" ){
+   if ( LineN.includes(s1) === true ) {
+
+  var possition = LineN.indexOf(s1);
+
+   }
+else return " Sorry there is no such stop in this line "
+ }
+
+else if ( l1 === "L" ){
+   if ( LineL.includes(s1) === true ) {
+
+  var possition = LineL.indexOf(s1);
+
+   }
+else return " Sorry there is no such stop in this line "
+ } 
+
+else if ( l1 === "6" ){
+   if ( Line6.includes(s1) === true ) {
+
+  var possition = Line6.indexOf(s1);
+
+   }
+else return " Sorry there is no such stop in this line "
+ }
+else return " Sorry there is no such line in this city "
+
+
+  if ( l1 === "N" ){
+     if ( l1 === l2 ) {
+for ( var i = 0 ; i === LineN.indexOf(s2) ; i ++ ){
+return " Go to " + LineN[i] + " Then ";
+}
+     }
+  }
+
+else if ( l1 === "L" ){
+     if ( l1 === l2 ) {
+for ( var i = 0 ; i === LineL.indexOf(s2) ; i ++ ){
+return " Go to " + Linel[i] + " Then ";
+}
+     }
+  }
+
+else if ( l1 === "6" ){
+     if ( l1 === l2 ) {
+for ( var i = 0 ; i === Line6.indexOf(s2) ; i ++ ){
+return " Go to " + Line6[i] + " Then ";
+}
+     }
+  }
+ 
+
+}
