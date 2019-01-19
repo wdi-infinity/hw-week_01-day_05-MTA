@@ -1,0 +1,82 @@
+MTA Puzzle//////////////
+
+var lineN = ["Time Square","34th","28th","23th","Union Square","8th"]
+var lineL = ["1st","3rd","Union Square","6th","8th"]  
+var lineS = ["Grand Central","33rd","28th","23rd","Union Square","Astor Place"]
+
+
+function planTrip(firstL,sStation,secondL,eStation){
+
+
+
+for (var i=0; i<lineN.length; i++){
+
+if(lineN[i] === sStation){
+
+var firstStops = lineN.slice(i,lineN.length)
+
+console.log("You must travel through the following stops on the N line:"+" " +firstStops)
+
+if (firstStops.length>lineN.indexOf("Union Square")){
+console.log("change at: Union Square")}
+}
+}
+
+for (var i=0; i<lineL.length; i++){
+
+if(lineL[i] === sStation){
+
+var firstStops = lineL.slice(i,lineL.length)
+
+console.log("You must travel through the following stops on the L line:"+" " +firstStops)
+
+if (firstStops.length>lineL.indexOf("Union Square")){
+console.log("change at: Union Square")}
+}
+}
+
+for (var i=0; i<lineS.length; i++){
+
+if(lineS[i] === sStation){
+
+var firstStops = lineS.slice(i,lineS.length)
+
+console.log("You must travel through the following stops on the 6 line:"+" " +firstStops)
+
+if (firstStops.length>lineS.indexOf("Union Square")){
+console.log("change at: Union Square")}
+}
+}
+
+
+for (var i=0; i<lineN.length; i++){
+if(lineN[i] === eStation){
+lastStops = lineN.slice(i,lineN.length)
+console.log("Your journey continues through the following stops on N line: "+" "+lastStops)
+}
+}
+
+
+for (var i=0; i<lineL.length; i++){
+if(lineL[i] === eStation){
+lastStops = lineL.slice(i,lineL.length)
+console.log("Your journey continues through the following stops on L line: "+" "+lastStops)
+}
+}
+for (var i=0; i<lineS.length; i++){
+if(lineS[i] === eStation){
+lastStops = lineS.slice(i,lineS.length)
+console.log("Your journey continues through the following stops on 6 line: "+" "+lastStops)
+}
+}
+console.log((firstStops.length + lastStops.length) + " stops in total.")
+
+} 
+
+call planTrip()/////
+planTrip("lineN","Time Square","lineL","6th")
+output////////////////
+// You must travel through the following stops on the N line: Time Square,34th,28th,23th,Union Square,8th
+//change at: Union Square
+//Your journey continues through the following stops on L line:  6th,8th
+//8 stops in total.
