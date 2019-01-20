@@ -1,0 +1,101 @@
+
+var Nline = ['Time Square', '4th', '28th','23rd', 'Union Square', '8th']
+var Lline = ['8th', '6th', 'Union Square', '3rd', '1st']
+var sixLine = ['Grand Central', '33rd', '28th', '23rd', 'Union Square',
+ 'Astor Place']
+
+
+function subwaySystem(lineOn, stopOn, lineOff, stopOff){
+
+for (var i = 0; i<= Nline.length; i++){
+
+if( lineOn === Nlinel.length){
+
+console.log("You must travel through the following stops on the N line:  4th, 28th,23rd, Union Square, 8th you have " 
++ Nline.length  + "stops in total ")
+}
+else if(lineOn.includes('4th') === true){
+
+    console.log("You must travel through the following stops on the N line:  28th,23rd, Union Square, 8th you have  4 stops in total ")
+
+} else if(lineOn.includes('28th') === true){
+
+    console.log("You must travel through the following stops on the N line: 23rd, Union Square, 8th you have  3 stops in total")
+
+} else if (lineOn.includes("23rd")=== true){
+
+
+    console.log(("You must travel through the following stops on the N line: Union Square, 8th you have  2 stop in total"))
+} else if (ineOn.includes("Union Square")=== true){
+
+
+    console.log("This is an intersection with L line and 6 Line. You have one stop ahead of you on the N line , your stop station will be 8th ")
+} else {
+console.log("you're in the last station on the Nlne, there is no stop ahead of you ")
+}
+
+
+}
+
+for (var i = 0; i<= Lline.length; i++){
+
+    if( lineOn === Lline.length){
+
+        console.log("You must travel through the following stops on the L line:  8th, 6th, Union Square, 3rd, and 1st you have " 
+        + Lline.length  + "stops in total ")
+        }
+        else if(lineOn.includes('8th') === true){
+        
+            console.log("You must travel through the following stops on the L line:  6th, Union Square, 3rd, and 1st  , you have 4 stops in total ")
+        
+        } else if(lineOn.includes('6th') === true){
+        
+            console.log("You must travel through the following stops on the L line: Union Square, 3rd, and 1st e  3 stops in total")
+        
+        } else if (ineOn.includes("Union Square") === true){
+        
+        
+            console.log("This is an intersection with N line and 6 Line. You have two stops ahead of you on the L line , your stop stations will be  3rd, and 1st ")
+        
+        } else if(lineOn.includes('3rd') === true){
+
+            console.log("You have on stop ahead of you, 1st station")
+        } else { console.log("you're in the last station on the Nlne, there is no stop ahead of you ")
+        }
+        
+    
+}
+
+
+for (var i = 0; i<= sixLine.length; i++){
+
+
+
+    if( lineOn === sixLine.length){
+
+        console.log("You must travel through the following stops on the 6 line: Grand Central, 33rd, 28th, 23rd, Union Square, and Astor Place you have " 
+        + sixLine.length  + "stops in total ")
+        }
+        else if(lineOn.includes('33rd') === true){
+        
+            console.log("You must travel through the following stops on the 6 line:  6th, 28th, 23rd, Union Square, and Astor Place , you have 4 stops in total ")
+        
+        } else if(lineOn.includes('28th') === true){
+        
+            console.log("You must travel through the following stops on the 6 line: Union Square,  23rd, Union Square, and Astor Place  3 stops in total")
+
+
+         } else if(lineOn.includes('23rd') === true){ 
+             console.log("You must travel through the following stops on the 6 line: Union Square,  Union Square, and Astor Place  2 stops in total")
+        
+        } else if (ineOn.includes("Union Square") === true){
+        
+            console.log("This is an intersection with N line and L Line. You have one stops ahead of you on the 6 line , your stop station will be Astor Place ")
+        
+        }        
+    
+}
+
+}
+
+
