@@ -1,0 +1,48 @@
+var Intersection = [{stopName: "US", stopValue: 1}]
+
+var lineN= [
+    {stopName: "TS", stopValue: 1},
+	{stopName: "34", stopValue: 1},
+	{stopName: "28", stopValue: 1},
+	{stopName: "23", stopValue: 1},
+    {Intersection},
+	{stopName: "8", stopValue: 1}    
+	
+]
+
+var lineL= [
+    {stopName: "8", stopValue: 1},
+	{stopName: "6", stopValue: 1},
+	
+	{stopName: "3", stopValue: 1},
+	{stopName: "1", stopValue: 1}
+ 
+]
+
+var line6 = [
+    {stopName: "GC", stopValue: 1},
+	{stopName: "33", stopValue: 1},
+	{stopName: "28", stopValue: 1},
+	{stopName: "23", stopValue: 1},
+	{stopName: "23", stopValue: 1},
+	
+	{stopName: "AP", stopValue: 1}
+]
+
+var ln1= lineN[0].stopValue;
+var ln2= lineN[1].stopValue;
+var ln3= lineN[2].stopValue;
+var ln4= lineN[3].stopValue;
+var ln5= lineN[5].stopValue;
+
+var ll1= lineL[0].stopValue;
+var ll2= lineL[1].stopValue;
+var ll3= lineL[3].stopValue;
+var ll4= lineL[4].stopValue;
+
+var l61= line6[0].stopValue;
+var l62= line6[1].stopValue;
+var l63= line6[2].stopValue;
+var l64= line6[3].stopValue;
+var l65= line6[4].stopValue;
+var l66= line6[6].stopValue;
