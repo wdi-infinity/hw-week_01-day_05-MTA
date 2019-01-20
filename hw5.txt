@@ -1,0 +1,54 @@
+
+
+var MTA = {
+  'N': ['Times Square', '34th', '28th', '23rd', 'Union Square', '8th'],
+  'L': ['8th', '6th', 'Union Square', '3rd', '1st'],
+  '6': ['Grand Central', '33rd', '28th', '23rd', 'Union Square', 'Astor Place']
+} 
+
+
+var planTrip = function(line1, startPoint, line2, endPoint){
+ 
+  if (line1 === line2){
+       
+    let startIndex = MTA[line1].indexOf(startPoint);
+  
+    let stops = startIndex - endIndex;
+   
+      stopNames = getLine.slice(startIndex+1,endIndex+1).join(', ');
+    }else{ 
+      stopNames = getLine.slice(endIndex,startIndex).reverse().join(', ');
+    }  
+    return `Your travels on the ${line1} line, from ${startPoint} to ${end} is through the following stops: ${stopNames}.  There are ${stops} stops.`;
+
+  }else{     
+   
+    let getLine1 = MTA[line1];  
+    let startIndex = MTA[line1].indexOf(start);
+    
+    let stopsToUnion = startIndex - MTA[line1].indexOf('Union Square');
+    let stopsToUnionArray = [];
+    if (stopsToUnion<0){ 
+      stopsToUnion = stopsToUnion * (-1);
+      stopsToUnionArray = getLine1.slice(startIndex+1, MTA[line1].indexOf('Union Square')+1).join(', ');
+    }else{   
+      stopsToUnionArray = getLine1.slice(MTA[line1].indexOf('Union Square'), startIndex).reverse().join(', ');
+    }
+   
+    let getLine2 = MTA[line2]; 
+    let endIndex = MTA[line2].indexOf(end);
+    if (endIndex === -1){
+      return 'Invalid ending station';
+    };
+    let stopsFromUnion = MTA[line2].indexOf('Union Square') - endIndex;
+    let stopsFromUnionArray = [];
+    if (stopsFromUnion<0){  
+      stopsFromUnion = stopsFromUnion * (-1);
+      stopsFromUnionArray = getLine2.slice(MTA[line2].indexOf('Union Square')+1, endIndex+1).join(', ');
+    }else{    
+      stopsFromUnionArray = getLine2.slice(endIndex,MTA[line2].indexOf('Union Square')).reverse().join(', ');
+    }
+
+    return `You must travel through the following stops on the ${line1} line: ${stopsToUnionArray}.  Change at Union Square.  Your journey continues through the following stops: ${stopsFromUnionArray}.  There are ${stopsToUnion+stopsFromUnion} stops in total.`;
+  }  
+};
