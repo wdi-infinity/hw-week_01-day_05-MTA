@@ -84,3 +84,22 @@ function countStops(startStation, lastStation) {
     }
   return stops;
 }
+
+//test case:
+// planTrip(N, "Times Square",N, "8th");
+// "You must travel through the following stops on the N line:  34th,  28th,  23rd,  Union Square,  8th,
+// 5 stops in total"
+// ,
+// planTrip(N, "Times Square",six, "Grand Central");
+// "You must travel through the following stops on the N line:
+//   34th,  28th,  23rd,  Union Square,
+//  Change at Union Square
+//  Your journey continues through the following stops: 23rd,  28th,  33rd,  Grand Central.
+//  8 stops in total."
+// ,
+// planTrip(L, "6th",six, "Grand Central");
+// "You must travel through the following stops on the L line:
+//   Union Square,
+//  Change at Union Square
+//  Your journey continues through the following stops: 23rd,  28th,  33rd,  Grand Central.
+//  5 stops in total."
