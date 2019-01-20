@@ -6,7 +6,6 @@ planTrip("N", "Times Square", "6", "33rd"); // This is only a suggested function
 // "Your journey continues through the following stops: 23rd, 28th, 33rd."
 // "7 stops in total."
 
-//create an array for each line
 
 function planTrip(from_subway,from_station,to_subway,to_station) { 
 
@@ -177,4 +176,3 @@ else if(from_subway === "6" && to_subway === "6"){
 
 result = count + count2;
 return result; }
-
