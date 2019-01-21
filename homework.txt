@@ -1,0 +1,8 @@
+// we add the three lines in object and array .
+// there are two assumption:
+//first:one trip in the same line. 
+//second: two trips in diffrent lines and we have to change in "union square".
+// if condtion (for one trip). 
+// add incrementloops in the if condtion.
+// else for the two lins trip.
+// add decremnt loop for the backward trip.
