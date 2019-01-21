@@ -1,3 +1,20 @@
+
+// My idea to solve this problem 
+// 1- store each line to array 
+// 2- by knowimg startLINE and line we can push the rest of 
+//     path to new array (each line new array , the rest of path shoud 
+//               be ends in share point "Union Square") .
+// 3- return all paths in virable .
+
+
+
+
+
+
+
+
+
+
 var lines = {
   "N": ["Times Square", "34th", "28th", "23rd", "Union Square", "8th",],
   "L": ["8th", "6th", "Union Square", "3rd", "1st"],
