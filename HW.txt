@@ -1,0 +1,55 @@
+// create an object with an array to save station in it
+
+var lines = {
+
+  "N": ["Times Square", "34th", "28th", "23rd", "Union Square", "8th",],
+  "L": ["8th", "6th", "Union Square", "3rd", "1st"],
+  "6": ["Grand Central", "33rd", "28th", "23rd", "Union Square", "Astorce"]
+
+}
+
+// to make the number of stops zero in the begining
+var NumStops = 0;
+// to count the numver os stops also to check with lines object
+function stops (line, start , end ) {
+    var arrayLines = lines [line] ;
+    var ss = "" ;
+// to check if the ponts entred are  in lines object
+var sStation = arrayLine.indexOf(start);
+var eStation = arrayline.indexOf(end);
+
+
+// to continue count
+if (sStation < eStation ) {
+  for (var i = sStation - 1 ; i < eStation + 1  ; i++) {
+       ss += arrayLines[i] + 1;
+       NumStops ++;
+  }
+
+} 
+// for count back
+else {
+   for (i = sStation + 1 ; => eStation -1 ; i--) {
+      ss +=  arrayLines [i] + 1;
+      NumStops ++;
+   }
+}
+
+
+}
+// function to enter the Start line , Start Station , End line , End station 
+function findTrip (sLine , sStation , eLine , eStation) {
+// check if start line eqaul to end line
+// if that save it and print the trip plan
+     if (sLine === eLine) {
+       var arrived = stops(sLine , sStation , eStation ){
+      console.log ("your trip are " + arrived) } }
+      
+      // to moving into amother line when station acrossing with US
+      else if(sStation === "Union Square" ) {
+            console.log("you are moving on Union Square right now")
+      }
+
+
+      
+}
