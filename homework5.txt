@@ -8,18 +8,18 @@ var stopsCount = 0;
 function getStopsString(line, startStop, endStop) {
   var lineArray = lines[line];
   var stopsString = "";
-  // SHIFT + ALT + DOWN/UP
+
   var startStationIndex = lineArray.indexOf(startStop);
   var endStationIndex = lineArray.indexOf(endStop);
 
   if (startStationIndex < endStationIndex) { // Go forward
     for (var i = startStationIndex + 1; i <= endStationIndex; i++) {
-      stopsString += lineArray[i] + ", ";
+      stopsString += (lineArray[i].join(","));
       stopsCount++;
     }
   } else { // Go backward
     for (var i = startStationIndex - 1; i >= endStationIndex; i--) {
-      stopsString += lineArray[i] + ", ";
+      stopsString += (lineArray[i].join(","));
       stopsCount++;
     }
   }
