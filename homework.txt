@@ -1,0 +1,27 @@
+//put each line with its stops in arrays which is inside an opject
+//declear a counter to count how many stops do we want for count and to print it out
+//a function that has a line ,start stop and the last stop
+//inside the function we're going to use IF statement and for loop 
+//for loop increment i++ and for decrement i-- to go backward 
+
+var lines = {
+  "N": ["Times Square", "34th", "28th", "23rd", "Union Square", "8th",],
+  "L": ["8th", "6th", "Union Square", "3rd", "1st"],
+  "6": ["Grand Central", "33rd", "28th", "23rd", "Union Square", "Astorce"]
+}
+var i = 0;
+
+function stops(line, startStop, endStop) {
+ 
+
+  if (startStop < endStop) { 
+    for (var i = startStop + 1; i <= endStop; i++) {
+      i++;
+    }
+  } else { 
+    for (var i = startStop - 1; i >= endStop; i--) {
+      i++;
+    }
+  }
+  return stops;
+}
