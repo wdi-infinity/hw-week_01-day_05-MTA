@@ -1,0 +1,17 @@
+//the user take the line N start tripe from Times Square , then stop at 34th station 
+go through 23th stop station then union Square." the user here has total stop 3 times then 
+//the other tripe N will start from union square then 23th as first stop station, then 28th secound 
+stop station , then 33rd station as the last stop station .
+
+var "journeyN":["Time Square","34th","28th","23rd","Union Square"]
+"journeyL":["8th","6th","Union Square","3rd","1st"]
+"journey6":["Grand Central","33rd","28th","23rd","Union Square","Astor Place"]
+
+planTrip:function(trip,startStop,endStop){
+ for (var i=0; i<journeyN.length; i++){
+   console.log("you must travel through the following stops on line N :" + journey[i] )
+for (var i=0; i<journeyL.length; i++){
+ console.log("the dirction will change to secound line"+journeyL+)
+
+}
+}
